@@ -7,25 +7,46 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-<!--    <Button-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="start"-->
-<!--        android:onClick="startKiosk"/>-->
-<!--    <Button-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="stop"-->
-<!--        android:onClick="stopKiosk"/>-->
-
-    <TextView
-        android:id="@+id/text"
+    <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="18sp"/>
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/apk_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/app_pkg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/get_pkg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get apk info"/>
+        <Button
+            android:id="@+id/get_version_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Install apk"/>
+        <Button
+            android:id="@+id/uninstall_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="unInstall app"/>
+    </LinearLayout>
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/text"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="18sp"/>-->
 
     <Button
         android:id="@+id/jump"

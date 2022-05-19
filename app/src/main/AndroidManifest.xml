@@ -4,6 +4,9 @@
     android:process="system"
     android:sharedUserId="android.uid.system">
 
+    <!--  for uninstall app  -->
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     
@@ -23,7 +26,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondActivity"/>
+        <activity android:name=".KioskActivity"/>
+        <activity android:name=".AppManagerActivity"/>
         <activity android:name=".ThirdActivity"/>
 
         <receiver
@@ -46,6 +50,11 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_DISABLE" />
             </intent-filter>
         </receiver>
+
+
+        <!--  register to get the (un)install app result  -->
+        <receiver android:name="com.advantech.advandroidutils.appmanager.AppInstallResultReceiver"/>
+        <receiver android:name="com.advantech.advandroidutils.appmanager.AppUnInstallResultReceiver"/>
 
     </application>
 

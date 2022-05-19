@@ -3,14 +3,13 @@ package com.advantech.advandroidutilsdemo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ThirdActivity extends AppCompatActivity {
 
-    TextView textView;
+//    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +18,8 @@ public class ThirdActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("ThirdActivity");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        textView = findViewById(R.id.text);
-        textView.setText("ThirdActivity");
+//        textView = findViewById(R.id.text);
+//        textView.setText("ThirdActivity");
         findViewById(R.id.jump).setVisibility(View.INVISIBLE);
     }
 

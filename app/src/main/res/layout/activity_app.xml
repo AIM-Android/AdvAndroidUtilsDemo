@@ -13,23 +13,42 @@
         android:layout_weight="1"
         android:padding="20dp"
         android:orientation="vertical">
-        <Button
-            android:id="@+id/kiosk_page"
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kiosk Activity"
+            android:id="@+id/apk_filepath"/>
+
+        <Button
+            android:id="@+id/install_apk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Install from above apk path"
             android:textColor="@color/white"
             android:textStyle="bold"/>
-        <Button
-            android:id="@+id/app_page"
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/app_pkg"/>
+
+        <Button
+            android:id="@+id/uninstall_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:text="App Manager Activity"/>
-
+            android:text="Uninstall the above package app"/>
 
     </LinearLayout>
 
+
+    <TextView
+        android:layout_weight="0"
+        android:id="@+id/app_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:gravity="center"/>
 </LinearLayout>
