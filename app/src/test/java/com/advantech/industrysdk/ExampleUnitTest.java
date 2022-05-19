@@ -1,4 +1,4 @@
-package com.advantech.advandroidutilsdemo;
+package com.advantech.industrysdk;
 
 import org.junit.Test;
 

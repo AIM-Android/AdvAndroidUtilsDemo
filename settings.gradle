@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "AdvAndroidUtilsDemo"
+rootProject.name = "IndustrySDK"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.advantech.advandroidutilsdemo"
+    package="com.advantech.industrysdk"
     android:process="system"
     android:sharedUserId="android.uid.system">
 
@@ -40,7 +40,7 @@
         </receiver>
 
 
-        <receiver android:name="com.advantech.advandroidutilsdemo.AdminReceiver"
+        <receiver android:name=".AdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN"
             android:exported="true">
             <meta-data android:name="android.app.device_admin"

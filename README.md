@@ -1,4 +1,4 @@
-# AdvAndroidUtilsDemo
+# IndustrySDk
 A sample app shows how to use the advandroidutils.jar.
 
 ### \bin

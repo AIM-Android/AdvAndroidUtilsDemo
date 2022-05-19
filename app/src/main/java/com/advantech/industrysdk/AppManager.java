@@ -1,4 +1,4 @@
-package com.advantech.advandroidutilsdemo;//package com.advantech.advandroidutils;
+package com.advantech.industrysdk;//package com.advantech.advandroidutils;
 //
 //import android.app.PendingIntent;
 //import android.content.Context;

@@ -1,4 +1,4 @@
-package com.advantech.advandroidutilsdemo;//package com.advantech.advandroidutils;
+package com.advantech.industrysdk;//package com.advantech.advandroidutils;
 //
 //import android.content.BroadcastReceiver;
 //import android.content.Context;

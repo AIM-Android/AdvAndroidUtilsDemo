@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.advantech.advandroidutilsdemo"
+        applicationId "com.advantech.industrysdk"
         minSdkVersion 23
         targetSdkVersion 31
         versionCode 2
