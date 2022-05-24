@@ -28,7 +28,7 @@ AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions AP
 
 3. Exception AppLowerThanCurrentVersionException, InvalidApkFileException added.
 
-4. API launchApp, forceStopApp, enableApplication, disableApplication, installOrUpdateApkSilently, uninstallAppSilently, isAppInstalled, canInstallOrUpdateApk, getApkPkgName, getApkVersionCode, getInstalledAppVersionCode added in class AdvAndroidUtils.
+4. API installOrUpdateApkSilently, uninstallAppSilently, isAppInstalled, canInstallOrUpdateApk, getApkPkgName, getApkVersionCode, getInstalledAppVersionCode added in class AdvAndroidUtils.
 
 ### Class Summary
 
