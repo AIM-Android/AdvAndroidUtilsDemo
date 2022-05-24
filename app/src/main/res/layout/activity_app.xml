@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Install from above apk path"
+            android:background="@color/Blue900"
             android:textColor="@color/white"
             android:textStyle="bold"/>
 
@@ -36,10 +37,46 @@
             android:id="@+id/uninstall_app"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/Blue900"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:text="Uninstall the above package app"/>
 
+        <Button
+            android:id="@+id/launch_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Blue900"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Launch the above package app"/>
+
+        <Button
+            android:id="@+id/forcestop_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Blue900"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Force stop the above package app"/>
+
+        <Button
+            android:id="@+id/disable_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/Blue900"
+            android:textStyle="bold"
+            android:text="Disable the above package app"/>
+
+        <Button
+            android:id="@+id/enable_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/Blue900"
+            android:textStyle="bold"
+            android:text="Enable the above package app"/>
     </LinearLayout>
 
 

@@ -56,9 +56,16 @@ public class KioskActivity extends AppCompatActivity implements View.OnClickList
         }else {
             autoStartCb.setChecked(false);
         }
+
         if((boolean)sp.getSharedPreference("kiosk_status", false)){
-            enterKiosk();
-        }else {
+            stopKioskBt.setBackgroundColor(getResources().getColor(R.color.Blue700));
+            stopKioskBt.setTextColor(getResources().getColor(R.color.white));
+            stopKioskBt.setEnabled(true);
+            startKioskBt.setBackgroundColor(getResources().getColor(R.color.Grey200));
+            startKioskBt.setTextColor(getResources().getColor(R.color.Blue900));
+            startKioskBt.setEnabled(false);
+            statusTv.setText("Entered Kiosk Mode");
+        } else {
             startKioskBt.setBackgroundColor(getResources().getColor(R.color.Blue700));
             startKioskBt.setTextColor(getResources().getColor(R.color.white));
             startKioskBt.setEnabled(true);
@@ -68,6 +75,11 @@ public class KioskActivity extends AppCompatActivity implements View.OnClickList
             statusTv.setText("Not In Kiosk Mode");
         }
 
+        if((boolean)sp.getSharedPreference("kiosk_status", false) &&
+                getIntent().getBooleanExtra("boot_start", false)){
+            enterKiosk();
+        }
+
         autoStartCb.setOnCheckedChangeListener(this);
     }
 
@@ -75,9 +87,9 @@ public class KioskActivity extends AppCompatActivity implements View.OnClickList
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: ");
         //when reboot or shutdown, exit kiosk mode.
-        if((boolean)sp.getSharedPreference("kiosk_status", false)){
-            exitKiosk();
-        }
+//        if((boolean)sp.getSharedPreference("kiosk_status", false)){
+//            exitKiosk();
+//        }
         super.onDestroy();
     }
 

@@ -1,3 +1,5 @@
+
+
 # AdvAndroidUtils
 
 AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions API of Android.**
@@ -8,10 +10,15 @@ AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions AP
 
 ### **Version Update Info:**
 
-| Version | Date       | Description            |
-| ------- | ---------- | ---------------------- |
-| 1.1.0   | 2022-05-19 | Added app manager API. |
-| 1.0.0   | 2022-05-06 | Include kiosk API.     |
+| Version | Date       | Description                        |
+| ------- | ---------- | ---------------------------------- |
+| 1.2.0   | 2022-05-24 | Added some other app manager APIs. |
+| 1.1.0   | 2022-05-19 | Added app manager API.             |
+| 1.0.0   | 2022-05-06 | Include kiosk API.                 |
+
+##### v1.2.0:
+
+1. API launchApp, forceStopApp, enableApplication, disableApplication added in class AdvAndroidUtils.
 
 ##### v1.1.0:
 
@@ -21,7 +28,7 @@ AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions AP
 
 3. Exception AppLowerThanCurrentVersionException, InvalidApkFileException added.
 
-4. API installOrUpdateApkSilently, uninstallAppSilently, isAppInstalled, canInstallOrUpdateApk, getApkPkgName, getApkVersionCode, getInstalledAppVersionCode added.
+4. API launchApp, forceStopApp, enableApplication, disableApplication, installOrUpdateApkSilently, uninstallAppSilently, isAppInstalled, canInstallOrUpdateApk, getApkPkgName, getApkVersionCode, getInstalledAppVersionCode added in class AdvAndroidUtils.
 
 ### Class Summary
 
@@ -61,6 +68,10 @@ belongs to class AdvAndroidUtils.
 
 | Modifier and Type | Method and Description                                       |
 | ----------------- | ------------------------------------------------------------ |
+| boolean           | launchApp(@NonNull String pkg)<br />Start the application.<br />Support since v1.2.0. |
+| boolean           | forceStopApp(@NonNull String pkg)<br />Force stop the application process.<br />Support since v1.2.0. |
+| boolean           | enableApplication(@NonNull String pkg)<br />Enable setting for an application.<br />Support since v1.2.0. |
+| boolean           | disableApplication(@NonNull String pkg)<br />Disable setting for an application, the app will be hide, and can't start the app until enable it again.<br />Support since v1.2.0. |
 | void              | installOrUpdateApkSilently(@NonNull String filePath, AppManagerListener listener)<br />Install the apk file silently.<br />Support since v1.1.0. |
 | void              | uninstallAppSilently(@NonNull String pkg, AppManagerListener listener)<br />Uninstall the app silently.<br />Support since v1.1.0. |
 | boolean           | isAppInstalled(@NonNull String packageName)<br />Whether the app has installed.<br />Support since v1.1.0. |
@@ -128,6 +139,94 @@ Support since v1.1.0
 ​		`error` - error info.
 
 #### 2. Methods belongs to AdvAndroidUtils:
+
+##### launchApp
+
+```
+public boolean launchApp(@NonNull String pkg) 
+```
+
+Start the application.
+
+Support since v1.2.0
+
+- Parameters:
+
+​		`pkg` - package name of the target application.
+
+- Returns:
+
+​		Whether the operation success.
+
+- Throws:
+
+​		NotSystemAppException
+
+##### forceStopApp
+
+```
+public boolean forceStopApp(@NonNull String pkg)
+```
+
+Force stop the application process.
+
+Support since v1.2.0
+
+- Parameters:
+
+​		`pkg` - package name of the target application.
+
+- Returns:
+
+​		Whether the operation success.
+
+- Throws:
+
+​		NotSystemAppException
+
+##### enableApplication
+
+```
+public boolean enableApplication(@NonNull String pkg) 
+```
+
+Enable setting for an application.
+
+Support since v1.2.0
+
+- Parameters:
+
+​		`pkg` - package name of the target application.
+
+- Returns:
+
+​		Whether the operation success.
+
+- Throws:
+
+​		NotSystemAppException
+
+##### disableApplication
+
+```
+public boolean disableApplication(@NonNull String pkg)
+```
+
+Disable setting for an application, the app will be hide, and can't start the app until enable it again.
+
+Support since v1.2.0
+
+- Parameters:
+
+​		`pkg` - package name of the target application.
+
+- Returns:
+
+​		Whether the operation success.
+
+- Throws:
+
+​		NotSystemAppException
 
 ##### installOrUpdateApkSilently
 
@@ -478,3 +577,203 @@ Constructor:
 We won't provide the sdk about app start automatically after boot completely.
 
 If you are interested in this feature, please refer to the sample code which is realized by register the boot broadcast.
+
+# Other Popular APIS
+
+### Reboot & Shutdown
+
+```
+public void reboot(@Nullable String reason)
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/os/PowerManager#reboot(java.lang.String)
+
+```
+public void shutdown(boolean confirm, String reason, boolean wait)
+```
+
+- Link:
+
+  android.os.PowerManager
+
+### About WIFI
+
+```
+public boolean setWifiEnabled(boolean enabled)
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/net/wifi/WifiManager#setWifiEnabled(boolean)
+
+```
+public void connect(@NonNull WifiConfiguration config, @Nullable ActionListener listener)
+```
+
+- Link:
+
+​		android.net.wifi.WifiManager
+
+```
+public void connect(int networkId, @Nullable ActionListener listener)
+```
+
+- Link:
+
+​		android.net.wifi.WifiManager
+
+```
+public int addNetwork (WifiConfiguration config)
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/net/wifi/WifiManager#addNetwork(android.net.wifi.WifiConfiguration)
+
+```
+public boolean disconnect ()
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/net/wifi/WifiManager#disconnect()
+
+```
+public boolean removeNetwork (int netId)
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/net/wifi/WifiManager#removeNetwork(int)
+
+### About Bluetooth
+
+```
+public boolean enable()
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/bluetooth/BluetoothAdapter#enable()
+
+```
+public boolean disable ()
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/bluetooth/BluetoothAdapter#disable()
+
+### About Location
+
+```
+public static final String LOCATION_MODE
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.Secure#LOCATION_MODE
+
+```
+public static final int LOCATION_MODE_BATTERY_SAVING
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.Secure#LOCATION_MODE_BATTERY_SAVING
+
+```
+public static final int LOCATION_MODE_HIGH_ACCURACY
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.Secure#LOCATION_MODE_HIGH_ACCURACY
+
+```
+public static final int LOCATION_MODE_OFF
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.Secure#LOCATION_MODE_OFF
+
+```
+public static final int LOCATION_MODE_SENSORS_ONLY
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.Secure#LOCATION_MODE_SENSORS_ONLY
+
+### About ADB
+
+```
+public static final String DEVELOPMENT_SETTINGS_ENABLED
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.Global#DEVELOPMENT_SETTINGS_ENABLED
+
+```
+public static final String ADB_ENABLED
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.Global#ADB_ENABLED
+
+### System Setting
+
+```
+public static final String SCREEN_OFF_TIMEOUT
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.System#SCREEN_OFF_TIMEOUT
+
+```
+public static final String AUTO_TIME
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.System#AUTO_TIME
+
+```
+public static final String AUTO_TIME_ZONE
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.System#AUTO_TIME_ZONE
+
+```
+public static final String SCREEN_BRIGHTNESS_MODE
+```
+
+```
+public static final int SCREEN_BRIGHTNESS_MODE_AUTOMATIC
+```
+
+```
+public static final int SCREEN_BRIGHTNESS_MODE_MANUAL
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.System#SCREEN_BRIGHTNESS_MODE
+
+```
+public static final String ACCELEROMETER_ROTATION
+```
+
+- Link:
+
+​		https://developer.android.google.cn/reference/android/provider/Settings.System#ACCELEROMETER_ROTATION
+
+### About APP

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
     String pkg = "com.android.settings";
 
     EditText apkPathEt, appPkgEt;
-    Button installBt, uninstallBt;
+    Button installBt, uninstallBt, launchBt, forcestopBt, enableBt, disableBt;
     TextView appStatusTv;
 
 
@@ -46,15 +47,16 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
 
         installBt = findViewById(R.id.install_apk);
         uninstallBt = findViewById(R.id.uninstall_app);
+        launchBt = findViewById(R.id.launch_app);
+        forcestopBt = findViewById(R.id.forcestop_app);
+        enableBt = findViewById(R.id.enable_app);
+        disableBt = findViewById(R.id.disable_app);
         installBt.setOnClickListener(this);
         uninstallBt.setOnClickListener(this);
-
-        installBt.setBackgroundColor(getResources(). getColor(R.color.Blue900));
-        installBt.setTextColor(getResources().getColor(R.color.white));
-        installBt.setEnabled(true);
-        uninstallBt.setBackgroundColor(getResources(). getColor(R.color.Blue900));
-        uninstallBt.setTextColor(getResources().getColor(R.color.white));
-        uninstallBt.setEnabled(true);
+        launchBt.setOnClickListener(this);
+        forcestopBt.setOnClickListener(this);
+        enableBt.setOnClickListener(this);
+        disableBt.setOnClickListener(this);
 
         advKioskUtils = AdvAndroidUtils.getInstance(this);
     }
@@ -79,6 +81,42 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.launch_app:
+                try {
+                    boolean b = advKioskUtils.launchApp(appPkgEt.getText().toString());
+                    Toast.makeText(this, "launch "+appPkgEt.getText().toString()+ (b?" success!":" failed!"), Toast.LENGTH_SHORT).show();
+                } catch (NotSystemAppException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "not system app", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.forcestop_app:
+                try {
+                    boolean b = advKioskUtils.forceStopApp(appPkgEt.getText().toString());
+                    Toast.makeText(this, "forceStop "+appPkgEt.getText().toString()+ (b?" success!":" failed!"), Toast.LENGTH_SHORT).show();
+                } catch (NotSystemAppException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "not system app", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.enable_app:
+                try {
+                    boolean b = advKioskUtils.enableApplication(appPkgEt.getText().toString());
+                    Toast.makeText(this, "enable "+appPkgEt.getText().toString()+ (b?" success!":" failed!"), Toast.LENGTH_SHORT).show();
+                } catch (NotSystemAppException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "not system app", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.disable_app:
+                try {
+                    boolean b = advKioskUtils.disableApplication(appPkgEt.getText().toString());
+                    Toast.makeText(this, "disable "+appPkgEt.getText().toString()+ (b?" success!":" failed!"), Toast.LENGTH_SHORT).show();
+                } catch (NotSystemAppException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "not system app", Toast.LENGTH_SHORT).show();
+                }
+                break;
             case R.id.install_apk:
                 try {
                     appStatusTv.setText("Installing "+apkPathEt.getText().toString()+"...");
