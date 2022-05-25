@@ -1,8 +1,8 @@
 
 
-# AdvAndroidUtils
+# AdvIndustrySDK
 
-AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions API of Android.**
+AdvIndustrySDK is an android sdk provided by Advantech. **System Permissions API of Android.**
 
 ### **Author:**
 
@@ -10,15 +10,10 @@ AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions AP
 
 ### **Version Update Info:**
 
-| Version | Date       | Description                        |
-| ------- | ---------- | ---------------------------------- |
-| 1.2.0   | 2022-05-24 | Added some other app manager APIs. |
-| 1.1.0   | 2022-05-19 | Added app manager API.             |
-| 1.0.0   | 2022-05-06 | Include kiosk API.                 |
-
-##### v1.2.0:
-
-1. API launchApp, forceStopApp, enableApplication, disableApplication added in class AdvAndroidUtils.
+| Version | Date       | Description            |
+| ------- | ---------- | ---------------------- |
+| 1.1.0   | 2022-05-25 | Added app manager API. |
+| 1.0.0   | 2022-05-06 | Include kiosk API.     |
 
 ##### v1.1.0:
 
@@ -28,13 +23,13 @@ AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions AP
 
 3. Exception AppLowerThanCurrentVersionException, InvalidApkFileException added.
 
-4. API launchApp, forceStopApp, enableApplication, disableApplication, installOrUpdateApkSilently, uninstallAppSilently, isAppInstalled, canInstallOrUpdateApk, getApkPkgName, getApkVersionCode, getInstalledAppVersionCode added in class AdvAndroidUtils.
+4. API launchApp, forceStopApp, enableApplication, disableApplication, installOrUpdateApkSilently, uninstallAppSilently, isAppInstalled, canInstallOrUpdateApk, getApkPkgName, getApkVersionCode, getInstalledAppVersionCode added in class AdvIndustrySDK.
 
 ### Class Summary
 
 | Class         | Description                                |
 | ------------- | ------------------------------------------ |
-| AdvAndroidUtils | Provide a set of kiosk related operations. |
+| AdvIndustrySDK | Provide a set of kiosk related operations. |
 | AppInstallResultReceiver | A receiver to get the install app result, must register in the call project.<br />Support since v1.1.0. |
 | AppUnInstallResultReceiver | A receiver to get the uninstall app result, must register in the call project.<br />Support since v1.1.0. |
 
@@ -42,8 +37,8 @@ AdvAndroidUtils is an android sdk provided by Advantech. **System Permissions AP
 
 | Exception                           | Description                                                  |
 | ----------------------------------- | ------------------------------------------------------------ |
-| NotSystemAppException               | Exception will be thrown when it is't a system app.          |
-| ActivityNotForegroundException      | Exception will be thrown when activity is't foreground.      |
+| NotSystemAppException               | Exception will be thrown when it isn't a system app.          |
+| ActivityNotForegroundException      | Exception will be thrown when activity isn't foreground.      |
 | PropertiesNotFoundException         | Exception will be thrown when the custom properties were not found. |
 | AppLowerThanCurrentVersionException | Exception will be thrown when the apk's version code is lower than the installed one.<br />Support since v1.1.0. |
 | InvalidApkFileException             | Exception will be thrown when the file is not an apk file.<br />Support since v1.1.0. |
@@ -64,14 +59,14 @@ belongs to class AppManagerListener.
 | void              | onUninstalled(String pkgName)<br />Called when the package was uninstalled |
 | void              | onFailed(@AppManagerAction int action, String source, String error)<br />Called when error happened. |
 
-belongs to class AdvAndroidUtils.
+belongs to class AdvIndustrySDK.
 
 | Modifier and Type | Method and Description                                       |
 | ----------------- | ------------------------------------------------------------ |
-| boolean           | launchApp(@NonNull String pkg)<br />Start the application.<br />Support since v1.2.0. |
-| boolean           | forceStopApp(@NonNull String pkg)<br />Force stop the application process.<br />Support since v1.2.0. |
-| boolean           | enableApplication(@NonNull String pkg)<br />Enable setting for an application.<br />Support since v1.2.0. |
-| boolean           | disableApplication(@NonNull String pkg)<br />Disable setting for an application, the app will be hide, and can't start the app until enable it again.<br />Support since v1.2.0. |
+| boolean           | launchApp(@NonNull String pkg)<br />Start the application.<br />Support since v1.1.0. |
+| boolean           | forceStopApp(@NonNull String pkg)<br />Force stop the application process.<br />Support since v1.1.0. |
+| boolean           | enableApplication(@NonNull String pkg)<br />Enable setting for an application.<br />Support since v1.1.0. |
+| boolean           | disableApplication(@NonNull String pkg)<br />Disable setting for an application, the app will be hide, and can't start the app until enable it again.<br />Support since v1.1.0. |
 | void              | installOrUpdateApkSilently(@NonNull String filePath, AppManagerListener listener)<br />Install the apk file silently.<br />Support since v1.1.0. |
 | void              | uninstallAppSilently(@NonNull String pkg, AppManagerListener listener)<br />Uninstall the app silently.<br />Support since v1.1.0. |
 | boolean           | isAppInstalled(@NonNull String packageName)<br />Whether the app has installed.<br />Support since v1.1.0. |
@@ -138,7 +133,7 @@ Support since v1.1.0
 
 ​		`error` - error info.
 
-#### 2. Methods belongs to AdvAndroidUtils:
+#### 2. Methods belongs to AdvIndustrySDK:
 
 ##### launchApp
 
@@ -148,7 +143,7 @@ public boolean launchApp(@NonNull String pkg)
 
 Start the application.
 
-Support since v1.2.0
+Support since v1.1.0
 
 - Parameters:
 
@@ -170,7 +165,7 @@ public boolean forceStopApp(@NonNull String pkg)
 
 Force stop the application process.
 
-Support since v1.2.0
+Support since v1.1.0
 
 - Parameters:
 
@@ -192,7 +187,7 @@ public boolean enableApplication(@NonNull String pkg)
 
 Enable setting for an application.
 
-Support since v1.2.0
+Support since v1.1.0
 
 - Parameters:
 
@@ -214,7 +209,7 @@ public boolean disableApplication(@NonNull String pkg)
 
 Disable setting for an application, the app will be hide, and can't start the app until enable it again.
 
-Support since v1.2.0
+Support since v1.1.0
 
 - Parameters:
 
@@ -498,7 +493,7 @@ Get the status of full screen immersive which set by hideStatusNavBarImmersive &
 public class NotSystemAppException extends Exception
 ```
 
-Exception will be thrown when it is't a system app.
+Exception will be thrown when it isn't a system app.
 
 Constructor:
 
@@ -574,11 +569,15 @@ Constructor:
 
 # Auto Start When Boot Completely
 
-We won't provide the sdk about app start automatically after boot completely.
+We won't provide the API about app start automatically after boot completely.
 
 If you are interested in this feature, please refer to the sample code which is realized by register the boot broadcast.
 
 # Other Popular APIS
+
+Here are some standard APIs provided by Android, you can click the link for more information if you care about it.
+
+AdvIndustrySDK doesn't contains these APIs below.
 
 ### Reboot & Shutdown
 
@@ -776,4 +775,3 @@ public static final String ACCELEROMETER_ROTATION
 
 ​		https://developer.android.google.cn/reference/android/provider/Settings.System#ACCELEROMETER_ROTATION
 
-### About APP

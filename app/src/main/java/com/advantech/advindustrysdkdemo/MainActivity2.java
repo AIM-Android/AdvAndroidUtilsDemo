@@ -1,4 +1,4 @@
-package com.advantech.industrysdk;
+package com.advantech.advindustrysdkdemo;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.advantech.advandroidutils.AdvAndroidUtils;
-import com.advantech.advandroidutils.excption.ActivityNotForegroundException;
-import com.advantech.advandroidutils.excption.NotSystemAppException;
-import com.advantech.advandroidutils.excption.PropertiesNotFoundException;
+import com.advantech.advindustrysdk.AdvIndustrySDK;
+import com.advantech.advindustrysdk.excption.ActivityNotForegroundException;
+import com.advantech.advindustrysdk.excption.NotSystemAppException;
+import com.advantech.advindustrysdk.excption.PropertiesNotFoundException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -37,7 +37,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     DevicePolicyManager devicePolicyManager;
     ComponentName admin;
 
-//    AdvAndroidUtils advAndroidUtils;
+//    AdvIndustrySDK advAndroidUtils;
 
     static MainActivity2 activity;
 
@@ -60,10 +60,10 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.button_get2).setOnClickListener(this);
 
         devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        admin = new ComponentName("com.advantech.advandroidutils", "com.advantech.advandroidutils.AdminReceiver");
+        admin = new ComponentName("com.advantech.advindustrysdk", "com.advantech.advindustrysdk.AdminReceiver");
 
-//        advAndroidUtils = new AdvAndroidUtils(this);
-//        AdvAndroidUtils.setLockMode(this);
+//        advAndroidUtils = new AdvIndustrySDK(this);
+//        AdvIndustrySDK.setLockMode(this);
 
 //        IntentFilter filter = new IntentFilter(Intent.ACTION_CONFIGURATION_CHANGED);
 ////            filter.addAction(Intent.ACTION_USER_SWITCHED);
@@ -261,7 +261,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             case R.id.button6:
 //                advAndroidUtils.setLockMode(this);
                 try {
-                    boolean b = AdvAndroidUtils.setKiosk(activity);
+                    boolean b = AdvIndustrySDK.setKiosk(activity);
                     Log.d(TAG, "onClick: setKiosk = "+b);
                     Toast.makeText(this, "setKiosk:"+b, Toast.LENGTH_SHORT).show();
 
@@ -276,7 +276,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             case R.id.button7:
 //                advAndroidUtils.cancelLockMode(this);
 //                try {
-                    AdvAndroidUtils.cancelKiosk(this);
+                    AdvIndustrySDK.cancelKiosk(this);
 //                } catch (NotSystemAppException e) {
 //                    e.printStackTrace();
 //                }
@@ -285,7 +285,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
             case R.id.button:
                 try {
-                    boolean b = AdvAndroidUtils.hideStatusNavBar(this);
+                    boolean b = AdvIndustrySDK.hideStatusNavBar(this);
                     Log.d(TAG, "onClick: hideStatusNavBar = "+b);
                     Toast.makeText(this, "hideStatusNavBar:"+b, Toast.LENGTH_SHORT).show();
                 } catch (PropertiesNotFoundException e) {
@@ -296,7 +296,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.button2:
 //                try {
-                boolean b = AdvAndroidUtils.showStatusNavBar(this);
+                boolean b = AdvIndustrySDK.showStatusNavBar(this);
                 Log.d(TAG, "onClick: showStatusNavBar = "+b);
                 Toast.makeText(this, "showStatusNavBar:"+b, Toast.LENGTH_SHORT).show();
 //                    AdvKioskUtils.showStatusNavBarImmersive();
@@ -306,21 +306,21 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.button9:
-                AdvAndroidUtils.hideStatusNavBarImmersive();
+                AdvIndustrySDK.hideStatusNavBarImmersive();
                 break;
             case R.id.button10:
-                AdvAndroidUtils.cancelHideStatusNavBarImmersive();
+                AdvIndustrySDK.cancelHideStatusNavBarImmersive();
                 break;
 
             case R.id.button3:
-                String[] pkgs = new String[]{"com.example.kiosk", "com.advantech.httpdemo", "com.adv.client", "com.advantech.advandroidutils"};
+                String[] pkgs = new String[]{"com.example.kiosk", "com.advantech.httpdemo", "com.adv.client", "com.advantech.advindustrysdk"};
                 devicePolicyManager.setLockTaskPackages(admin, pkgs);
                 break;
             case R.id.button4:
                 devicePolicyManager.setLockTaskPackages(admin, new String[0]);
                 break;
             case R.id.button8:
-//                Activity currentForwardActivity = AdvAndroidUtils.getCurrentForwardActivity();
+//                Activity currentForwardActivity = AdvIndustrySDK.getCurrentForwardActivity();
 //                Toast.makeText(MainActivity.this, "forward activity:"+(currentForwardActivity==null?"null":currentForwardActivity.getComponentName()), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button5:
@@ -328,12 +328,12 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.button_get1:
-                String fullScreenStatus = AdvAndroidUtils.getFullScreenStatus(this);
+                String fullScreenStatus = AdvIndustrySDK.getFullScreenStatus(this);
                 Log.d(TAG, "onClick: getFullScreenStatus = "+fullScreenStatus);
                 Toast.makeText(this, "getFullScreenStatus:"+fullScreenStatus, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button_get2:
-                String fullScreenStatus2 = AdvAndroidUtils.getFullScreenStatusImmersive(this);
+                String fullScreenStatus2 = AdvIndustrySDK.getFullScreenStatusImmersive(this);
                 Log.d(TAG, "onClick: getFullScreenStatusImmersive = "+fullScreenStatus2);
                 Toast.makeText(this, "getFullScreenStatusImmersive:"+fullScreenStatus2, Toast.LENGTH_SHORT).show();
 
@@ -346,7 +346,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     private void removeDeviceOwner(){
         //TODO 检查一下状态是不是立刻更新！
 
-        if(devicePolicyManager.isDeviceOwnerApp("com.advantech.advandroidutils")){
+        if(devicePolicyManager.isDeviceOwnerApp("com.advantech.advindustrysdk")){
             Log.d(TAG, "removeDeviceOwner: securitymdm is device owner now");
         }else {
             Log.d(TAG, "removeDeviceOwner: securitymdm is not device owner now");
@@ -357,7 +357,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         try {
             Class<? extends DevicePolicyManager> aClass = devicePolicyManager.getClass();
             Method clearDeviceOwnerApp = aClass.getMethod("clearDeviceOwnerApp", String.class);
-            clearDeviceOwnerApp.invoke(devicePolicyManager, "com.advantech.advandroidutils");
+            clearDeviceOwnerApp.invoke(devicePolicyManager, "com.advantech.advindustrysdk");
             Log.d(TAG, "removeDeviceOwner: end ");
             Toast.makeText(this, "already removed", Toast.LENGTH_SHORT).show();
         } catch (NoSuchMethodException e) {
@@ -374,7 +374,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             Toast.makeText(this, "remove failed:"+e.getMessage(), Toast.LENGTH_SHORT).show();
         }finally {
 
-            if(!devicePolicyManager.isDeviceOwnerApp("com.advantech.advandroidutils")){
+            if(!devicePolicyManager.isDeviceOwnerApp("com.advantech.advindustrysdk")){
                 Log.d(TAG, "removeDeviceOwner: securitymdm is not device owner!");
             }else {
                 Log.d(TAG, "removeDeviceOwner: securitymdm is device owner still!");
@@ -386,7 +386,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             } catch (InterruptedException e) {
 
             }finally {
-                if(!devicePolicyManager.isDeviceOwnerApp("com.advantech.advandroidutils")){
+                if(!devicePolicyManager.isDeviceOwnerApp("com.advantech.advindustrysdk")){
                     Log.d(TAG, "removeDeviceOwner: securitymdm is not device owner!");
                 }else {
                     Log.d(TAG, "removeDeviceOwner: securitymdm is device owner still!");
@@ -404,12 +404,12 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 //        if(intent.getAction().equals("adv.utils.locktask.receiver")){
             Log.d(MainActivity.TAG, "onReceive: LockTaskReceiver!");
 
-//            AdvAndroidUtils advAndroidUtils = new AdvAndroidUtils(context);
+//            AdvIndustrySDK advAndroidUtils = new AdvIndustrySDK(context);
 //            advAndroidUtils.setLockMode(null);
             if(activity != null){
                 Log.d(MainActivity.TAG, "onReceive: setKiosk");
                 try {
-                    AdvAndroidUtils.setKiosk(activity);
+                    AdvIndustrySDK.setKiosk(activity);
                 }catch (Exception e){
                     Log.d(TAG, "onReceive: Exception = "+e.getMessage());
                 }

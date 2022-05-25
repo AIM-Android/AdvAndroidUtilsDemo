@@ -1,4 +1,4 @@
-package com.advantech.industrysdk;
+package com.advantech.advindustrysdk;
 
 import org.junit.Test;
 

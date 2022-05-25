@@ -1,4 +1,4 @@
-package com.advantech.industrysdk;
+package com.advantech.advindustrysdkdemo;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,12 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.advantech.advandroidutils.AdvAndroidUtils;
-import com.advantech.advandroidutils.excption.AppLowerThanCurrentVersionException;
-import com.advantech.advandroidutils.excption.InvalidApkFileException;
-import com.advantech.advandroidutils.excption.NotSystemAppException;
+import com.advantech.advindustrysdk.AdvIndustrySDK;
+import com.advantech.advindustrysdk.excption.AppLowerThanCurrentVersionException;
+import com.advantech.advindustrysdk.excption.InvalidApkFileException;
+import com.advantech.advindustrysdk.excption.NotSystemAppException;
 
-public class AppManagerActivity extends AppCompatActivity implements View.OnClickListener, AdvAndroidUtils.AppManagerListener {
+public class AppManagerActivity extends AppCompatActivity implements View.OnClickListener, AdvIndustrySDK.AppManagerListener {
 
     public static final String TAG = "AppManagerActivity";
 
@@ -29,7 +29,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
     TextView appStatusTv;
 
 
-    AdvAndroidUtils advKioskUtils;
+    AdvIndustrySDK advKioskUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
         enableBt.setOnClickListener(this);
         disableBt.setOnClickListener(this);
 
-        advKioskUtils = AdvAndroidUtils.getInstance(this);
+        advKioskUtils = AdvIndustrySDK.getInstance(this);
     }
 
     @Override
@@ -191,13 +191,13 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onFailed(int action, String source, String error) {
         Log.d(TAG, "onFailed: action = "+action+", source = "+source+", error = "+error);
-        if(action == AdvAndroidUtils.AppManagerAction.ACTION_INSTALL){
+        if(action == AdvIndustrySDK.AppManagerAction.ACTION_INSTALL){
             String apkFilePath = source;
             appStatusTv.setText("Install "+apkFilePath+" Failed!" + "\n" + "error: "+error);
             installBt.setBackgroundColor(getResources(). getColor(R.color.Blue900));
             installBt.setTextColor(getResources().getColor(R.color.white));
             installBt.setEnabled(true);
-        }else if(action == AdvAndroidUtils.AppManagerAction.ACTION_UNINSTALL){
+        }else if(action == AdvIndustrySDK.AppManagerAction.ACTION_UNINSTALL){
             String pkgName = source;
             appStatusTv.setText("Uninstall "+pkgName+" Failed!" + "\n" + "error: "+error);
             uninstallBt.setBackgroundColor(getResources(). getColor(R.color.Blue900));

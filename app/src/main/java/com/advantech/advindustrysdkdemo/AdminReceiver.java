@@ -1,4 +1,4 @@
-package com.advantech.industrysdk;
+package com.advantech.advindustrysdkdemo;
 
 import android.app.admin.DeviceAdminReceiver;
 import android.content.Context;
@@ -14,7 +14,7 @@ public class AdminReceiver extends DeviceAdminReceiver {
 
     public void setDeviceOwnerAdb() {
         //shell组设置成功
-        // adb shell dpm set-device-owner com.advantech.advandroidutils/com.advantech.advandroidutils.AdminReceiver
+        // adb shell dpm set-device-owner com.advantech.advindustrysdk/com.advantech.advindustrysdk.AdminReceiver
     }
 
     @Override

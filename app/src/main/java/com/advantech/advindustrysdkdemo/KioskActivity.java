@@ -1,4 +1,4 @@
-package com.advantech.industrysdk;
+package com.advantech.advindustrysdkdemo;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,10 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.advantech.advandroidutils.AdvAndroidUtils;
-import com.advantech.advandroidutils.excption.ActivityNotForegroundException;
-import com.advantech.advandroidutils.excption.NotSystemAppException;
-import com.advantech.advandroidutils.excption.PropertiesNotFoundException;
+import com.advantech.advindustrysdk.AdvIndustrySDK;
+import com.advantech.advindustrysdk.excption.ActivityNotForegroundException;
+import com.advantech.advindustrysdk.excption.NotSystemAppException;
+import com.advantech.advindustrysdk.excption.PropertiesNotFoundException;
 
 
 public class KioskActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -143,7 +143,7 @@ public class KioskActivity extends AppCompatActivity implements View.OnClickList
 
         boolean inKiosk = false;
         try {
-            inKiosk = AdvAndroidUtils.setKiosk(this);
+            inKiosk = AdvIndustrySDK.setKiosk(this);
         } catch (NotSystemAppException | ActivityNotForegroundException | PropertiesNotFoundException e) {
             e.printStackTrace();
             Log.d(TAG, "enterKiosk: exception = "+e.getClass().getSimpleName()+" : "+e.getMessage());
@@ -180,7 +180,7 @@ public class KioskActivity extends AppCompatActivity implements View.OnClickList
         stopKioskBt.setTextColor(getResources().getColor(R.color.Blue900));
         stopKioskBt.setEnabled(false);
 
-        AdvAndroidUtils.cancelKiosk(this);
+        AdvIndustrySDK.cancelKiosk(this);
 
         startKioskBt.setBackgroundColor(getResources().getColor(R.color.Blue700));
         startKioskBt.setTextColor(getResources().getColor(R.color.white));

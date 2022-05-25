@@ -1,4 +1,4 @@
-package com.advantech.industrysdk;
+package com.advantech.advindustrysdkdemo;
 
 import android.content.Context;
 import android.content.SharedPreferences;
