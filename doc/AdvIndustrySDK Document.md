@@ -24,7 +24,6 @@ AdvIndustrySDK is an android sdk provided by Advantech. **System Permissions API
 3. Exception AppLowerThanCurrentVersionException, InvalidApkFileException added.
 
 4. API launchApp, forceStopApp, enableApplication, disableApplication, installOrUpdateApkSilently, uninstallAppSilently, isAppInstalled, canInstallOrUpdateApk, getApkPkgName, getApkVersionCode, getInstalledAppVersionCode added in class AdvIndustrySDK.
-
 ### Class Summary
 
 | Class         | Description                                |
