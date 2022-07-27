@@ -10,10 +10,11 @@ AdvIndustrySDK is an android sdk provided by Advantech. **System Permissions API
 
 ### **Version Update Info:**
 
-| Version | Date       | Description            |
-| ------- | ---------- | ---------------------- |
-| 1.1.0   | 2022-05-25 | Added app manager API. |
-| 1.0.0   | 2022-05-06 | Include kiosk API.     |
+| Version | Date       | Description                                                 |
+| ------- | ---------- | ----------------------------------------------------------- |
+| 1.1.1   | 2022-07-27 | Fix bug: crash when call (un)install method on work thread. |
+| 1.1.0   | 2022-05-25 | Added app manager API.                                      |
+| 1.0.0   | 2022-05-06 | Include kiosk API.                                          |
 
 ##### v1.1.0:
 
