@@ -573,7 +573,7 @@ We won't provide the API about app start automatically after boot completely.
 
 If you are interested in this feature, please refer to the sample code which is realized by register the boot broadcast.
 
-# Other Popular APIS
+# System APIS
 
 Here are some standard APIs provided by Android, you can click the link for more information if you care about it.
 
